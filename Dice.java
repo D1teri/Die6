@@ -2,13 +2,11 @@
 
 public class Dice
 {
-    private Die6 die1;
-    private Die6 die2;
-    
-    private int value;
+    Die6 die1 = new Die6();
+    Die6 die2 = new Die6();
     
     public Dice() {
-        this.Die6();
+        this.roll();
     }
 
         /**
@@ -16,7 +14,7 @@ public class Dice
         * @return Die value
         */
     public int getValue() {
-        return value;
+        return die1.getValue() + die2.getValue();
     }
 
     /**
@@ -24,7 +22,8 @@ public class Dice
     * Note that roll does NOT return the new value
     */
     public void roll() {
-        this.value = die1 + die2;
+        die1.roll();
+        die2.roll();
     }
 
     /**
