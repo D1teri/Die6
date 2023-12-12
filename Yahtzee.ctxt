@@ -8,8 +8,10 @@ comment2.text=\n\ Roll\ the\ die\!\ Generate\ random\ number\ 1\ <\=\ x\ <\=\ 6\
 comment3.params=dieNumber
 comment3.target=void\ roll(int)
 comment4.params=
-comment4.target=void\ summarize()
+comment4.target=java.lang.String\ summarize()
 comment5.params=
 comment5.target=void\ rollAndGetValue()
 comment5.text=\n\ Roll\ the\ die\ and\ return\ the\ new\ value\n\ @return\ Die\ value\n
-numComments=6
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

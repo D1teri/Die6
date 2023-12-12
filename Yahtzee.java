@@ -7,14 +7,6 @@ public class Yahtzee
     Die6 die3 = new Die6();
     Die6 die4 = new Die6();
     Die6 die5 = new Die6();
-    
-    int d1 = 0;
-    int d2 = 0;
-    int d3 = 0;
-    int d4 = 0;
-    int d5 = 0;
-    int d6 = 0;
-    
     private Die6[] dice = {die1, die2, die3, die4, die5};
     
     public Yahtzee() {
@@ -34,23 +26,30 @@ public class Yahtzee
     }
     
     public void roll(int dieNumber){
-        dice[dieNumber].roll();
+        dice[dieNumber - 1].roll();
     }
     
-    public void summarize() {
+    public String summarize() {
         
-        for(int i=5; i < 0; i--){
-            if(dice[i].getValue() == 1) d1=+1;
-            if(dice[i].getValue() == 2) d2=+1;
-            if(dice[i].getValue() == 3) d3=+1;
-            if(dice[i].getValue() == 4) d4=+1;
-            if(dice[i].getValue() == 5) d5=+1;
-            if(dice[i].getValue() == 6) d6=+1;
+        int d1 = 0;
+        int d2 = 0;
+        int d3 = 0;
+        int d4 = 0;
+        int d5 = 0;
+        int d6 = 0;
+    
+        
+        for(int i=0; i < 5; i++){
+            if(dice[i].getValue() == 1) d1=d1+1;
+            if(dice[i].getValue() == 2) d2=d2+1;
+            if(dice[i].getValue() == 3) d3=d3+1;
+            if(dice[i].getValue() == 4) d4=d4+1;
+            if(dice[i].getValue() == 5) d5=d5+1;
+            if(dice[i].getValue() == 6) d6=d6+1;
         }
         
-        System.out.println("1-" + d1 + "; " + "2-" + d2 + "; " + "3-" + d3 + "; " 
-        + "4-" + d4 + "; " + "5-" + d5 + "; " + "6-" + d6);
-        return;
+        return "1-" + d1 + "; " + "2-" + d2 + "; " + "3-" + d3 + "; " 
+        + "4-" + d4 + "; " + "5-" + d5 + "; " + "6-" + d6;
     }
 
     /**
@@ -60,6 +59,11 @@ public class Yahtzee
     public void rollAndGetValue() {
         roll();
         summarize();
+    }
+    
+    public String toString() {
+        return "Dice values: " + die1.getValue() + " " + die2.getValue() + " " 
+        + die3.getValue() + " " + die4.getValue() + " "+ die5.getValue();
     }
 
     
